@@ -3,9 +3,9 @@
 
 declare variable $DATE as xs:date external ;
 
-<EVENT>
+<EVENTS>
 {
-let $a := doc("xml/fdc-eventos-2012.xml")//EVENT[xs:date(text(DATE)) = $DATE]
+let $a := doc("xml/fdc-eventos-2012.xml")//EVENT[xs:date(DATE) = $DATE]
 for $b in $a 
  return $b
 }
