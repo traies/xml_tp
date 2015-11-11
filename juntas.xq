@@ -1,25 +1,34 @@
-declare function local:findPlayTitle($play as node()) as node() {
-  let $play := doc("xml/fdc-obras-2012.xml")/PLAYS/PLAY[./ID_PLAY = $play]
-  return $play/TITLE/text()
-};
 declare variable $DATE as xs:date external ;
 
 <table>
 {
 for $a in doc("xml/fdc-eventos-2012.xml")/EVENTOS/EVENT[ DATE = $DATE]
-  let $play := local:findPlay($a/ID_PLAY)
+  let $play := doc("xml/fdc-obras-2012.xml")/PLAYS/PLAY[./ID_PLAY = $a/ID_PLAY]
+  let $place := doc("xml/fdc-sedes-2012.xml")/PLACES/PLACE[./ID_PLACE = $a/ID_PLACE]
+  let $artist := doc("xml/fdc-artistas-2012.xml")/ARTISTS/ARTIST[./ID_ARTIST = $a/ID_ARTIST1]
    return
    <row>
-    <title> {
-      local:findPlay($a/ID_PLAY)
-    }
-    </title>
-    <description> {
-    } </description>
-    <place> {} </place>
-    <time> {} </time>
-    <artist> {} </artist>
-    <bio> {} </bio>
+      {
+        $play/TITLE
+      }
+
+      {
+        $play/SYNOPSIS_ES
+      }
+
+      {
+        $place/TITLE
+      }
+
+      {
+          $a/TIME
+      }
+      {
+        $artist/NAME
+      }
+      {
+        $artist/BIO_ES
+      }
    </row>
 }
 </table>
