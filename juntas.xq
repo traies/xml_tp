@@ -2,6 +2,7 @@ declare variable $DATE as xs:date external ;
 
 <table>
 {
+
 for $a in doc("xml/fdc-eventos-2012.xml")/EVENTOS/EVENT[ DATE = $DATE]
   let $play := doc("xml/fdc-obras-2012.xml")/PLAYS/PLAY[./ID_PLAY = $a/ID_PLAY]
   let $place := doc("xml/fdc-sedes-2012.xml")/PLACES/PLACE[./ID_PLACE = $a/ID_PLACE]
@@ -16,16 +17,17 @@ for $a in doc("xml/fdc-eventos-2012.xml")/EVENTOS/EVENT[ DATE = $DATE]
         $play/SYNOPSIS_ES
       }
 
-      {
-        $place/TITLE
-      }
+      <PLACE>
+	<NAME>{$place/TITLE/text()}</NAME>
+	<ADDRESS>{$place/ADDRESS/text()}</ADDRESS>
+      </PLACE>
 
       {
           $a/TIME
       }
-      {
-        $artist/NAME
-      }
+      
+      <ARTIST>{$artist/NAME}</ARTIST>
+
       {
         $artist/BIO_ES
       }
