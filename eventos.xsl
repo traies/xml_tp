@@ -15,7 +15,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <body>
   <h1>Festival de danza contemporanea</h1>
-  <h2>Eventos del dia: <xsl:value-of select="date"/></h2>
+  <h2>Eventos del día: <xsl:value-of select="date"/></h2>
     <table border="1px solid black" style="width: 100%;">
       <tr bgcolor="#9acd32">
         <th style="text-align:center">Titulo</th>
