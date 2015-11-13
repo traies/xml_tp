@@ -1,4 +1,5 @@
 declare variable $DATE as xs:date external ;
+
 <root>
   <date>
     {
