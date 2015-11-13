@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template name="empty_template">
 	<html>
@@ -17,7 +17,7 @@
   <h1>Festival de danza contemporanea</h1>
   <h2>Eventos del día: <xsl:value-of select="date"/></h2>
     <table border="1px solid black" style="width: 100%;">
-      <tr bgcolor="#9acd32">
+      <tr bgcolor="#4ddbff">
         <th style="text-align:center">Titulo</th>
         <th style="text-align:center">Sinopsis</th>
         <th style="text-align:center">Lugar</th>
